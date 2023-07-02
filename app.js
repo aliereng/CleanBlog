@@ -1,12 +1,12 @@
 const express = require('express');
+const index = require('./router/index');
 const app = express();
 const port = 3000;
 
-app.get("/", (req,res,next)=> {
-    const blog = { id: 1, title: "Blog title", description: "Blog description" };
-    res.send(blog);
-})
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+app.use(index);
 
-app.listen(port, ()=> {
-    console.log(`server started on ${port} `);
-})
+app.listen(port, () => {
+  console.log(`server started on ${port} `);
+});
