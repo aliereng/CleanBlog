@@ -1,8 +1,7 @@
 const express = require('express');
+const {getAllPosts} = require("../controllers/post")
 const router = express.Router();
 
-router.get("", (req, res, next)=> {
-    res.render("index")
-})
+router.get("", getAllPosts)
 
 module.exports = router
