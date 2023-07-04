@@ -13,11 +13,12 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
-            <h1><%= post.title %></h1>
+            <h1><%= post.title %> <a href="/post/update/<%= post._id%>" style="color:white;"><span style="font-size: small;">güncelle</span></a> <a href="/post/delete/<%= post._id%>?_method=DELETE" style="color:white;"><span style="font-size: small;">sil</span></a>
+            </h1>
             <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
             <span class="meta">Posted by
               <a href="#">Start Bootstrap</a>
-              on <%= moment(post.createdAt).lang("tr").format('LL') %></span>
+              on <%= moment(post.createdAt).locale("tr").format('LL') %></span>
           </div>
         </div>
       </div>

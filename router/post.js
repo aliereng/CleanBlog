@@ -1,13 +1,11 @@
-const express = require('express');
-const Post = require("../models/Post")
+const express = require("express");
+const {createNewPost, getPostById, updatePost, removePostById} = require("../controllers/postController");
+const { getUpdatePage } = require('../controllers/pageController');
 const router = express.Router();
 
-
-router.get('/:id', async (req, res, next) => {
-  const post = await Post.findById(req.params.id);
-  res.render('post', {
-    post
-  })
-});
-
+router.get('/:id', getPostById)
+router.post('/create', createNewPost);
+router.get('/update/:id', getUpdatePage)
+router.put('/update/:id', updatePost)
+router.delete('/delete/:id', removePostById)
 module.exports = router;
